@@ -16,7 +16,7 @@ type Model = {
 
 type Msg =
 | ToContact
-| ScrollToPosition of int
+| ScrollToProjects
 
 let init() : Model = {CurrentPage=Main}
                   

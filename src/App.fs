@@ -12,6 +12,10 @@ open View
 
 
 let update (msg:Msg) (model:Model) =
+    match msg with
+    | ScrollToProjects -> 
+        window.scrollTo  (0.0,100.0)
+
     model
 // VIEW (rendered with React)
       

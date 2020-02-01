@@ -4,6 +4,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Types.fs" />
+    <Compile Include="Header.fs" />
+    <Compile Include="Hero.fs" />
+    <Compile Include="Banners.fs" />
+    <Compile Include="Experience.fs" />
+    <Compile Include="Projects.fs" />
     <Compile Include="View.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
