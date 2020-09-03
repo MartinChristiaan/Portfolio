@@ -11,7 +11,7 @@ let buttonstyle = [BorderRadius 20
 let hero = 
   let style = [BackgroundImage mainGradient;Height 300]
   let herotextStyle = [TextAlign TextAlignOptions.Center]
-  let mynameStyle = Style (herotextStyle @ [FontSize 40])
+  let mynameStyle = Style (herotextStyle @ [FontSize 40;PaddingTop 40])
   let myDescriptionStyle = Style (herotextStyle @ [FontSize 30])
   let name = p[mynameStyle][str "Martin Christiaan van Leeuwen"]
   let text = p[myDescriptionStyle][str "Machine learning specialist and programming enthusiast"]
@@ -21,8 +21,18 @@ let hero =
   let buttonstyle = 
     Style([Display DisplayOptions.Block;
     MarginLeft "auto";MarginRight "Auto";
-    Width 200; Height 40; Top 100;
-    Position PositionOptions.Relative;] @ buttonstyle)
+    Width 200; Height 50; Top 40;
+    Position PositionOptions.Relative; 
+    Background "linear-gradient(to right, #FFDD00, #FBB034)";
+    Border 0;
+    Color "black"
+    
+    ] @ buttonstyle)
 
 
-  div [Style style] [name;text;button[buttonstyle][str "Contact"]]
+  div [Style style; Id "Home"] 
+      [name;
+       text;
+       a[buttonstyle;
+         Class "button";
+         Href "mailto:martinvanleeuwen95@gmail.com"][str "Send Email"]]

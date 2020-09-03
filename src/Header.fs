@@ -7,16 +7,17 @@ let linkStyle = Style [Padding 10;
                        Color "White"
                        
                        ]
+let GlobalMaxWidth = MaxWidth "70rem"
 
 let headerTextNav dispatch =
   let headerTextStyle = [FontSize 25;Display DisplayOptions.Flex;Width "50%";
                     ]
-
+  let getOnClick divId = OnClick (fun x -> dispatch (ScrollToDiv divId) )
   div[Style headerTextStyle][
-    a[linkStyle][str "Home"];
-    a[linkStyle][str "Experience"];
-    a[linkStyle; OnClick (fun x -> dispatch ScrollToProjects )][str "Projects"];
-    a[linkStyle][str "Resume"] ]
+    a[linkStyle; getOnClick "Home" ][str "Home"];
+    a[linkStyle; getOnClick "Experience"][str "Experience"];
+    a[linkStyle; getOnClick "Projects"][str "Projects"];
+    a[linkStyle; Href "/Resume.pdf"][str "Resume"] ]
   
 let headerIcons = 
   let containerstyle = [Display DisplayOptions.Flex;
@@ -25,12 +26,14 @@ let headerIcons =
   ]
   let iconstyle = [
     FontSize 30
-    Padding 20
+    Padding 10
     Color "White"
   ]
-  div[Style containerstyle] [i [Class "fa fa-linkedin";Style iconstyle][];
-   i [Class "fa fa-youtube";Style iconstyle][];
-   i[Class "fa fa-github";Style iconstyle][]]
+  div[Style containerstyle] [a [Class "fa fa-linkedin";
+                                Href "https://www.linkedin.com/in/martin-van-leeuwen-3a3119186/" ;
+                                Style iconstyle][];
+  
+   a [Class "fa fa-github"; Href "https://github.com/MartinChristiaan";Style iconstyle][]]
 
 let mainGradient = "linear-gradient(to right, #5516A5 , #1F44A5)"
 let buttonGradient = "linear-gradient(to right, #5516A5 , #1F44A5)"
@@ -38,12 +41,12 @@ let buttonGradient = "linear-gradient(to right, #5516A5 , #1F44A5)"
 let header dispatch = 
   let style = 
     [BackgroundImage mainGradient;
-     Height 70;
-     Display DisplayOptions.Flex;
-     Padding 5;
+     
+    
      Width "100%";
      Position PositionOptions.Fixed
      ZIndex 1]
+  let contentstyle = [     Display DisplayOptions.Flex;Height 70; Padding 5;Width "100%";GlobalMaxWidth;Margin "auto"]
 
-  div [Style style] [headerTextNav dispatch;headerIcons]
+  div [Style style] [div[Style contentstyle][headerTextNav dispatch;headerIcons]]
 

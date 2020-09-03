@@ -9,12 +9,12 @@
     <Compile Include="Banners.fs" />
     <Compile Include="Experience.fs" />
     <Compile Include="Projects.fs" />
+
     <Compile Include="View.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="3.0.0" />
     <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
-
   </ItemGroup>
 </Project>
